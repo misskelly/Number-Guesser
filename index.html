@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Number Guesser</title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Number <span class="heading-top">Guesser</span>
+      </h1>
+      <hr>
+      <p class="heading-bottom">
+        Ultimate Challenger Edition
+      </p>
+      <hr>
+    </header>
+    <main>
+      <ul>
+        <li class="set-range-card">
+          <h3>
+            Set Range
+          </h3>
+          <form class="range-form">
+            <p>
+              Min Range
+            </p>
+            <input type="Number" name="min-range">
+            <p>
+              Max Range
+            </p>
+            <input type="Number" name="max-range">
+            <button>
+              Update
+            </button>
+          </form>
+        </li>
+        <li class="guesses-card">
+          <p>
+            The Current Range is <span>1</span> to <span>100</span>
+          </p>
+          <form>
+            <h3>
+              Challenger 1
+            </h3>
+            <p class="name-one">
+              Name
+            </p>
+            <input type="name" name="name-input-one">
+            <p>
+              Guess
+            </p>
+            <input type="Number" name="guess-input-one">
+             <h3>
+              Challenger 2
+            </h3>
+            <p class="name-two">
+              Name
+            </p>
+            <input type="name" name="name-input-two">
+            <p>
+              Guess
+            </p>
+            <input type="Number" name="guess-input-two">
+            <ul>
+              <li>
+                <button class="submit">
+                  Submit Guess
+                </button>
+              </li>
+              <li>
+                <button class="reset">
+                  Reset Game
+                </button>
+              </li>
+              <li>
+                <button class="clear">
+                  Clear Game
+                </button>
+              </li>
+            </ul>
+          </form>
+        </li>
+        <li>
+          <h3>
+            Latest Score
+          </h3>
+          <article class="article-left">
+            <h4 class="name-output-one">
+              Challenger 1 Name
+            </h4>
+            <p>
+              current guess
+            </p>
+            <p class="guess-output-one">
+              97
+            </p>
+            <h5 class="hint-one hints">
+              that's too high
+            </h5>
+          </article>
+          <article>
+            <h4 class="name-output-two">
+              Challenger 2 Name
+            </h4>
+            <p>
+              current guess
+            </p>
+            <p class="guess-output-two">
+              3
+            </p>
+            <h5 class="hint-two hints">
+              that's too low
+            </h5>
+          </article>
+        </li>
+      </ul>
+      <ul class="results">
+        <li>
+          <h4 class="name-output-one">
+            Challenger 1 Name
+          </h4>
+          <p>
+            vs  
+          </p>
+          <h4 class="name-output-two">
+            Challenger 2 Name
+          </h4>
+          <h2 class="winner-name">
+            Challenger 2 Name
+          </h2>
+          <p class="winner-static">
+            Winner
+          </p>
+          <h6>
+            <span class="guess-count">47</span> guesses
+          </h6>
+          <h6>
+            <span class="time-count">1.35</span> minutes
+          </h6>
+          <button>
+            <img src="error-icon.svg">
+          </button>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
