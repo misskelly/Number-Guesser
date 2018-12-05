@@ -1,21 +1,65 @@
+
 /* Universal */
 
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
+.flex-container {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+
 /*Header*/
 
 h1 {
+  font-size: 4rem;
   font-weight: 700;
+  color: #DD1972;
+  margin: 0;
+  padding-top: 1rem;
+}
+
+.title {
+  align-items: bottom;
+  height: 50%;
 }
 
 .heading-top {
-  font-weight: normal;
+  font-weight: 300;
 }
 
 header {
   background-color: #404041;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-transform: uppercase;
+  height: 9rem;
 }
+
+.subtitle {
+  width: 50%;
+  height: 50%;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+hr {
+  width: 20%;
+  margin: 0;
+}
+
+.heading-bottom {
+  width: 70%;
+  font-weight: 300;
+}
+
 /*Set Range Card*/
 
 /*Guesses Card*/

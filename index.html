@@ -7,19 +7,22 @@
     <title>Number Guesser</title>
   </head>
   <body>
-    <header>
-      <h1>
-        Number <span class="heading-top">Guesser</span>
-      </h1>
+    <header class="flex-container">
+      <section class="title flex-container">   
+        <h1>
+        Number<span class="heading-top">Guesser</span>
+        </h1>
+      </section>   
+      <section class="subtitle flex-container">
+        <hr>
+        <h2 class="heading-bottom">
+        Ultimate Challenger Edition</h2>
       <hr>
-      <p class="heading-bottom">
-        Ultimate Challenger Edition
-      </p>
-      <hr>
+      </section>
     </header>
-    <main>
-      <ul>
-        <li class="set-range-card">
+    <main class="flex-container">
+      <ul class="flex-container flex-column">
+        <li class="set-range-card flex-container">
           <h3>
             Set Range
           </h3>
@@ -37,7 +40,7 @@
             </button>
           </form>
         </li>
-        <li class="guesses-card">
+        <li class="guesses-card flex-container flex-column">
           <p>
             The Current Range is <span>1</span> to <span>100</span>
           </p>
@@ -64,8 +67,8 @@
               Guess
             </p>
             <input type="Number" name="guess-input-two">
-            <ul>
-              <li>
+            <ul class="flex-container">
+              <li >
                 <button class="submit">
                   Submit Guess
                 </button>
@@ -117,8 +120,8 @@
           </article>
         </li>
       </ul>
-      <ul class="results">
-        <li>
+      <ul class="results flex-container">
+        <li class="flex-container">
           <h4 class="name-output-one">
             Challenger 1 Name
           </h4>
@@ -128,9 +131,9 @@
           <h4 class="name-output-two">
             Challenger 2 Name
           </h4>
-          <h2 class="winner-name">
+          <p class="winner-name">
             Challenger 2 Name
-          </h2>
+          </p>
           <p class="winner-static">
             Winner
           </p>
