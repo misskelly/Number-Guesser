@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Number Guesser</title>
+
   </head>
   <body>
     <header class="flex-container">
@@ -35,14 +36,14 @@
               Max Range
             </p>
             <input type="Number" class="max-range">
-            <button>
+            <button class="set-range-button">
               Update
             </button>
           </form>
         </li>
         <li class="guesses-card flex-container flex-column">
           <p>
-            The Current Range is <span>1</span> to <span>100</span>
+            The Current Range is <span class="min">1</span> to <span class="max">100</span>     
           </p>
           <form>
             <h3>
@@ -149,5 +150,7 @@
         </li>
       </ul>
     </main>
+    <script src="main.js">
+    </script>
   </body>
 </html>
