@@ -1,7 +1,7 @@
 // GLOBAL VARIABLES
 
 // names for challenger one 
-var challengerOne = document.querySelector(".name");
+var challengerOne = document.querySelector(".name-input-one");
 
 // name for challenger two 
 var challengerTwo = document.querySelector(".name-input-two");
@@ -27,6 +27,15 @@ var lowNumber = document.querySelector(".min");
 // max-range statement
 var highNumber = document.querySelector(".max");
 
+// challenger 1 guess
+var guessOutputOne = document.querySelector(".guess-output-one");
+
+// challenger 2 guess
+var guessOutputTwo = document.querySelector(".guess-output-two");
+
+// submit button
+var submitButton = document.querySelector(".submit");
+
 // number of guesses-!!Anonymous Function!!
 // var totalGuesses = 
 
@@ -50,6 +59,14 @@ updateButton.addEventListener("click", function(e) {
 //   lowNumber.innerText = minRange;
 // })
 
+// update challenger one guess (button submit guess)
+submitButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  console.log(guessValueOne.value);
+  guessOutputOne.innerText = guessValueOne.value;
+  console.log(guessValueTwo.value);
+  guessOutputTwo.innerText = guessValueTwo.value;
+})
 
 
 
