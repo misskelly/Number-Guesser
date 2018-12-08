@@ -43,6 +43,8 @@ updateButton.addEventListener("click", function(e) {
   e.preventDefault();
   console.log(minRange.value);
   lowNumber.innerText = minRange.value;
+  console.log(maxRange.value);
+  highNumber.innerText = maxRange.value;
 })
 
 //   lowNumber.innerText = minRange;
