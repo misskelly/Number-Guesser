@@ -6,6 +6,12 @@ var challengerOne = document.querySelector(".name-input-one");
 // name for challenger two 
 var challengerTwo = document.querySelector(".name-input-two");
 
+// name output for challenger one
+var chalOneUpdateName = document.querySelector(".name-output-one");
+
+//name output for challenger two
+var chalTwoUpdateName = document.querySelector(".name-output-two");
+
 // guess one number
 var guessValueOne = document.querySelector(".guess-input-one");
 
@@ -68,6 +74,14 @@ submitButton.addEventListener("click", function(e) {
   guessOutputTwo.innerText = guessValueTwo.value;
 })
 
+// update challenger names to latet score cards using submit guess button
+submitButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  console.log(challengerOne.value);
+  chalOneUpdateName.innerText = challengerOne.value;
+  console.log(challengerTwo.value);
+  chalTwoUpdateName.innerText = challengerOne.value;
+})
 
 
 // submit guess (button guess)
