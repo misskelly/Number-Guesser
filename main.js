@@ -19,6 +19,31 @@ var guessValueOne = document.querySelector(".guess-input-one");
 var guessValueTwo = document.querySelector(".guess-input-two");
 
 // min-range-input
+var minRangeInput = document.querySelector(".min-range");
+
+// max-range-input
+var maxRangeInput = document.querySelector(".max-range");
+
+// update button
+var updateButton = document.querySelector(".set-range-button");
+
+// min-range statement
+var lowNumber = document.querySelector(".min");
+
+// max-range statement
+var highNumber = document.querySelector(".max");
+
+// challenger 1 guess
+var guessOutputOne = document.querySelector(".guess-output-one");
+
+// challenger 2 guess
+var guessOutputTwo = document.querySelector(".guess-output-two");
+
+// submit button
+var submitButton = document.querySelector(".submit");
+
+
+// min-range-input
 var minRange;
  // = document.querySelector(".min-range").value;
 // var minParsed = parseInt(minRange, 10);
@@ -87,7 +112,16 @@ function getSolution() {
 
 // EVENT LISTENERS
 
-// update range (button update)
+// update range for static numbers in card row 2
+updateButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  console.log(minRangeInput.value);
+  lowNumber.innerText = minRangeInput.value;
+  console.log(maxRangeInput.value);
+  highNumber.innerText = maxRangeInput.value;
+})
+
+// update range for number generator(button update)
 updateButton.addEventListener("click", function(e) {
   e.preventDefault();   
   minRange = parseInt(document.querySelector(".min-range").value, 10);
@@ -113,7 +147,7 @@ submitButton.addEventListener("click", function(e) {
   console.log(challengerOne.value);
   chalOneUpdateName.innerText = challengerOne.value;
   console.log(challengerTwo.value);
-  chalTwoUpdateName.innerText = challengerOne.value;
+  chalTwoUpdateName.innerText = challengerTwo.value;
 })
 
 
