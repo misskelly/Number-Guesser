@@ -1,5 +1,10 @@
 // GLOBAL VARIABLES
 
+
+//player input form
+var playerForm = document.querySelector(".player-form")
+var playerInput = document.querySelectorAll(".player-input");
+
 // names for challenger one 
 var challengerOne = document.querySelector(".name-input-one");
 
@@ -39,14 +44,14 @@ var guessOutputOne = document.querySelector(".guess-output-one");
 // challenger 2 guess
 var guessOutputTwo = document.querySelector(".guess-output-two");
 
-// submit button
+// Form Buttons
 var submitButton = document.querySelector(".submit");
+var resetButton = document.querySelector(".reset");
+var clearButton = document.querySelector(".clear");
 
 
 // min-range-input
 var minRange;
- // = document.querySelector(".min-range").value;
-// var minParsed = parseInt(minRange, 10);
 
 // default range 
 var solution = Math.ceil(Math.random() * 100);
@@ -54,6 +59,7 @@ console.log(solution);
 
 // max-range-input
 var maxRange;
+
  // = document.querySelector(".max-range").value;
 var maxParsed = parseInt(maxRange, 10);
 
@@ -77,25 +83,6 @@ var submitButton = document.querySelector(".submit");
 
 // number of guesses-!!Anonymous Function!!
 
-// RANDOM NUMBER
-// var  a = "1";
-// var b = "100";
-// var low = parseInt(a, 10);
-// var high = parseInt(b, 10);
-
-
-// function getSolution(min,max) {
-//   min = Math.ceil(min);
-//   max = Math.floor(max);
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-
-// function getSolution(e) {
-//   e.preventDefault();
-//   min = parseInt(minRange.value) || 1;
-//   max = parseInt(minRange.value) || 100;
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
 
 // FUNCTIONS
 
@@ -103,6 +90,28 @@ function getSolution() {
   // e.preventDefault();
   solution = Math.floor(Math.random() *(maxRange - minRange + 1) + minRange)
   console.log(solution)
+}
+
+function enableButtons() {
+  // var playerInputArray = Array.from(playerInput);
+  console.log(playerInput);
+  for (var i = 0; i < playerInput.length; i++) {
+    console.log(playerInput[i].value)
+    if (playerInput[i].value.length > 0) {
+      resetButton.disabled = false;
+      clearButton.disabled = false;      
+    }
+  }
+}
+
+function disableButtons() {
+  if (playerInput[0].value.length === 0
+    && playerInput[1].value.length === 0
+    && playerInput[2].value.length === 0
+    && playerInput[3].value.length === 0) {
+    clearButton.disabled = true;
+    resetButton.disabled = true;
+  }
 }
 
 
@@ -133,13 +142,14 @@ updateButton.addEventListener("click", function(e) {
 // })
 
 // update challenger one guess (button submit guess)
-submitButton.addEventListener("click", function(e) {
+submitButton.addEventListener("click", go)
+function go(e) {
   e.preventDefault();
   console.log(guessValueOne.value);
   guessOutputOne.innerText = guessValueOne.value;
   console.log(guessValueTwo.value);
   guessOutputTwo.innerText = guessValueTwo.value;
-})
+};
 
 // update challenger names to latet score cards using submit guess button
 submitButton.addEventListener("click", function(e) {
@@ -149,6 +159,16 @@ submitButton.addEventListener("click", function(e) {
   console.log(challengerTwo.value);
   chalTwoUpdateName.innerText = challengerTwo.value;
 })
+
+clearButton.addEventListener("click", function(e) {
+  e.preventDefault();
+});
+
+
+// Enable and Dis
+playerForm.addEventListener("keyup", enableButtons);
+playerForm.addEventListener("keyup", disableButtons);
+
 
 
 // submit guess (button guess)
