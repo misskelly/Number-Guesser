@@ -45,8 +45,6 @@ var submitButton = document.querySelector(".submit");
 
 // min-range-input
 var minRange;
- // = document.querySelector(".min-range").value;
-// var minParsed = parseInt(minRange, 10);
 
 // default range 
 var solution = Math.ceil(Math.random() * 100);
@@ -54,7 +52,8 @@ console.log(solution);
 
 // max-range-input
 var maxRange;
- // = document.querySelector(".max-range").value;
+
+// array becomes number
 var maxParsed = parseInt(maxRange, 10);
 
 // update button
@@ -75,40 +74,44 @@ var guessOutputTwo = document.querySelector(".guess-output-two");
 // submit button
 var submitButton = document.querySelector(".submit");
 
-// number of guesses-!!Anonymous Function!!
+// reset button
+var resetButton = document.querySelector(".reset");
 
-// RANDOM NUMBER
-// var  a = "1";
-// var b = "100";
-// var low = parseInt(a, 10);
-// var high = parseInt(b, 10);
+// reset to new random number
+var resetNewNumber
+
+// clear button
+clearButton = document.querySelector(".clear");
 
 
-// function getSolution(min,max) {
-//   min = Math.ceil(min);
-//   max = Math.floor(max);
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-
-// function getSolution(e) {
-//   e.preventDefault();
-//   min = parseInt(minRange.value) || 1;
-//   max = parseInt(minRange.value) || 100;
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
 
 // FUNCTIONS
 
 function getSolution() {
-  // e.preventDefault();
   solution = Math.floor(Math.random() *(maxRange - minRange + 1) + minRange)
   console.log(solution)
 }
 
+function clearGuessValues() {
+  guessValueOne.value = "";
+  guessValueTwo.value = "";
+}
 
-// function minNumber(minRange) {
-//   lowNumber.value = minRange;
-// }
+function clearChalValues() {
+  challengerOne.value = "Challenger 1";
+  challengerTwo.value = "Challenger 2";
+}
+
+function resetRange() {
+  minRangeInput.value = 1;
+  maxRangeInput.value = 100;
+}
+
+function resetGuesses() {
+  guessOutputOne.innerText = "?";
+  guessOutputTwo.innerText = "?";
+}
+  
 
 // EVENT LISTENERS
 
@@ -129,9 +132,6 @@ updateButton.addEventListener("click", function(e) {
   getSolution();
 })
 
-//   lowNumber.innerText = minRange;
-// })
-
 // update challenger one guess (button submit guess)
 submitButton.addEventListener("click", function(e) {
   e.preventDefault();
@@ -150,19 +150,21 @@ submitButton.addEventListener("click", function(e) {
   chalTwoUpdateName.innerText = challengerTwo.value;
 })
 
-
 // submit guess (button guess)
+
 // reset game (button reset)
-// clear game (button clear)
+resetButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  minRange = parseInt(document.querySelector(".min-range").value, 10) || 1;
+  maxRange = parseInt(document.querySelector(".max-range").value, 10) || 100;
+  solution = Math.floor(Math.random() *(maxRange - minRange + 1) + minRange)
+  return getSolution();
+})
 
-
-
-
-
-
-
-
-
-
-
-
+clearButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  clearGuessValues();
+  clearChalValues();
+  resetRange();
+  resetGuesses();
+})
