@@ -29,9 +29,6 @@ var minRangeInput = document.querySelector(".min-range");
 // max-range-input
 var maxRangeInput = document.querySelector(".max-range");
 
-// update button
-var updateButton = document.querySelector(".set-range-button");
-
 // min-range statement
 var lowNumber = document.querySelector(".min");
 
@@ -48,6 +45,7 @@ var guessOutputTwo = document.querySelector(".guess-output-two");
 var submitButton = document.querySelector(".submit");
 var resetButton = document.querySelector(".reset");
 var clearButton = document.querySelector(".clear");
+var updateButton = document.querySelector(".set-range-button");
 
 
 // min-range-input
@@ -86,14 +84,17 @@ var resetButton = document.querySelector(".reset");
 // reset to new random number
 var resetNewNumber
 
-// clear button
-clearButton = document.querySelector(".clear");
+// challenger 1 hint statement (high/low)
+var guessHintOne = document.querySelector(".hint-one")
+
+// challenger 2 hint statement (high/low)
+var guessHintTwo = document.querySelector(".hint-two")
 
 
 // FUNCTIONS
 
 function getSolution() {
-  solution = Math.floor(Math.random() *(maxRange - minRange + 1) + minRange)
+  solution = Math.floor(Math.random() * (maxRange - minRange + 1) + minRange)
   console.log(solution)
 }
 
@@ -200,6 +201,14 @@ resetButton.addEventListener("click", function(e) {
   return getSolution();
 })
 
+
+// reset game 
+resetButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  resetGuesses();
+})
+
+
 clearButton.addEventListener("click", function(e) {
   e.preventDefault();
   clearGuessValues();
@@ -207,3 +216,34 @@ clearButton.addEventListener("click", function(e) {
   resetRange();
   resetGuesses();
 })
+
+// This function will be called in an event listener connected to the submitButton.
+
+submitButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  chalOneHighLow();
+  chalTwoHighLow();
+});
+// The function will grab the inner text of the .hint-one and .hint-two  which will then be updated to the value of a function. the function will be a boolean which compares the argument of guessValueOne and guessValueTwo with the getSolution().
+
+function chalOneHighLow() {
+  if (guessValueOne.value > solution) {
+    guessHintOne.innerText = "that's too high";
+  } else if (guessValueOne.value < solution) {
+    guessHintOne.innerText = "that's too low";
+  } else {
+    guessHintOne.innerText = "BOOM!";
+    alert("BOOM!");
+  }
+}
+
+function chalTwoHighLow() {
+  if (guessValueTwo.value > solution) {
+    guessHintTwo.innerText = "that's too high";
+  } else if (guessValueTwo.value < solution) {
+    guessHintTwo.innerText = "that's too low";
+  } else {
+    guessHintTwo.innerText = "BOOM!";
+    alert("BOOM!");
+  }
+}
