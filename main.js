@@ -1,5 +1,10 @@
 // GLOBAL VARIABLES
 
+
+//player input form
+var playerForm = document.querySelector(".player-form")
+var playerInput = document.querySelectorAll(".player-input");
+
 // names for challenger one 
 var challengerOne = document.querySelector(".name-input-one");
 
@@ -39,8 +44,10 @@ var guessOutputOne = document.querySelector(".guess-output-one");
 // challenger 2 guess
 var guessOutputTwo = document.querySelector(".guess-output-two");
 
-// submit button
+// Form Buttons
 var submitButton = document.querySelector(".submit");
+var resetButton = document.querySelector(".reset");
+var clearButton = document.querySelector(".clear");
 
 
 // min-range-input
@@ -53,7 +60,6 @@ console.log(solution);
 // max-range-input
 var maxRange;
 
-// array becomes number
 var maxParsed = parseInt(maxRange, 10);
 
 // update button
@@ -84,7 +90,6 @@ var resetNewNumber
 clearButton = document.querySelector(".clear");
 
 
-
 // FUNCTIONS
 
 function getSolution() {
@@ -100,6 +105,28 @@ function clearGuessValues() {
 function clearChalValues() {
   challengerOne.value = "Challenger 1";
   challengerTwo.value = "Challenger 2";
+}
+
+function enableButtons() {
+  // var playerInputArray = Array.from(playerInput);
+  console.log(playerInput);
+  for (var i = 0; i < playerInput.length; i++) {
+    console.log(playerInput[i].value)
+    if (playerInput[i].value.length > 0) {
+      resetButton.disabled = false;
+      clearButton.disabled = false;      
+    }
+  }
+}
+
+function disableButtons() {
+  if (playerInput[0].value.length === 0
+    && playerInput[1].value.length === 0
+    && playerInput[2].value.length === 0
+    && playerInput[3].value.length === 0) {
+    clearButton.disabled = true;
+    resetButton.disabled = true;
+  }
 }
 
 function resetRange() {
@@ -133,13 +160,14 @@ updateButton.addEventListener("click", function(e) {
 })
 
 // update challenger one guess (button submit guess)
-submitButton.addEventListener("click", function(e) {
+submitButton.addEventListener("click", go)
+function go(e) {
   e.preventDefault();
   console.log(guessValueOne.value);
   guessOutputOne.innerText = guessValueOne.value;
   console.log(guessValueTwo.value);
   guessOutputTwo.innerText = guessValueTwo.value;
-})
+};
 
 // update challenger names to latet score cards using submit guess button
 submitButton.addEventListener("click", function(e) {
@@ -149,6 +177,17 @@ submitButton.addEventListener("click", function(e) {
   console.log(challengerTwo.value);
   chalTwoUpdateName.innerText = challengerTwo.value;
 })
+
+
+clearButton.addEventListener("click", function(e) {
+  e.preventDefault();
+});
+
+
+// Enable and Dis
+playerForm.addEventListener("keyup", enableButtons);
+playerForm.addEventListener("keyup", disableButtons);
+
 
 // submit guess (button guess)
 
