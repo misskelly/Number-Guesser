@@ -7,6 +7,13 @@ body {
   box-sizing: border-box;
 }
 
+.left-card {
+  padding: 10px;
+  border: 1px solid #D0D2D3;
+  background-color: #FFFFFF;
+  margin: 1rem;
+}
+
 .flex-container {
   display: flex;
   margin: 0;
@@ -14,6 +21,10 @@ body {
 
 .flex-column {
   flex-direction: column;
+}
+
+h3 {
+  margin: 0;
 }
 
 
@@ -76,31 +87,6 @@ label {
   border: 1px solid #6E6E6E;
   width: 50%;
   padding-left: 0px;
-}
-
-.set-range-card {
-  width: 95%;
-  border: 1px solid #D0D2D3;
-  background-color: #FFFFFF;
-  margin: 1rem;
-}
-
-
-/*Guesses Card*/
-.guesses-card {
-  width: 95%;
-  border: 1px solid #D0D2D3;
-  background-color: #FFFFFF;
-  margin: 1rem;
-}
-
-
-/*Latest Score Card*/
-.latest-score {
-  width: 95%;
-  border: 1px solid #D0D2D3;
-  background-color: #FFFFFF;
-  margin: 1rem;
 }
 
 /*Results*/
