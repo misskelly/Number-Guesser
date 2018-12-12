@@ -16,6 +16,7 @@ body {
 
 .flex-container {
   display: flex;
+  margin: 0;
 }
 
 .flex-column {
@@ -89,4 +90,7 @@ label {
 }
 
 /*Results*/
+
+
+@media  screen and (min-width: 900px)
 
