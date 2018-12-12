@@ -65,6 +65,11 @@ hr {
 }
 
 /*Set Range Card*/
+
+label {
+  display: inline-block;
+}
+
 .game {
   background-color: #F7F7F7;
   border: 1px solid #6E6E6E;
