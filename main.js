@@ -100,6 +100,29 @@ submitButton.addEventListener("click", submitClick);
 
 
 
+function checkRange() {
+  if (!minRangeInput.checkValidity()){
+    alert("Whoops! Min Range number must be between 0 and 999!")
+  };
+  if (!maxRangeInput.checkValidity()){
+    alert("Whoops! Max Range number must be between 10 and 999!")
+  };
+  if (minRangeInput.value > maxRange.value) {
+    alert("Uh Oh! Min Range number must be lower than Max Range number!")
+  };
+  if (maxRangeInput.value < minRangeInput.value){
+    alert("Uh Oh! Max Range number must be higher than Min Range number!")
+  };
+}
+
+  // body...
+
+
+function clearGuessValues() {
+  guessValueOne.value = "";
+  guessValueTwo.value = "";
+}
+
 // ****************
 // ALL FUNCTIONS
 // ****************
@@ -110,6 +133,10 @@ function updateClick(e) {
   updateStaticRange();
   updateNumberGenerator();
 }
+
+  
+
+// EVENT LISTENERS
 
 function updateStaticRange() {
   console.log(minRangeInput.value);
@@ -122,9 +149,9 @@ function updateStaticRange() {
 function updateNumberGenerator() {
   minRange = parseInt(document.querySelector(".min-range").value, 10);
   maxRange = parseInt(document.querySelector(".max-range").value, 10);
-  getSolution();
+    getSolution();
+    checkRange();
 }
-
 
 
 // update challenger one guess (button submit guess)
