@@ -1,5 +1,6 @@
+// ****************
 // GLOBAL VARIABLES
-
+// ****************
 
 //player input form
 var playerForm = document.querySelector(".player-form")
@@ -29,9 +30,6 @@ var minRangeInput = document.querySelector(".min-range");
 // max-range-input
 var maxRangeInput = document.querySelector(".max-range");
 
-// update button
-var updateButton = document.querySelector(".set-range-button");
-
 // min-range statement
 var lowNumber = document.querySelector(".min");
 
@@ -48,6 +46,7 @@ var guessOutputTwo = document.querySelector(".guess-output-two");
 var submitButton = document.querySelector(".submit");
 var resetButton = document.querySelector(".reset");
 var clearButton = document.querySelector(".clear");
+var updateButton = document.querySelector(".set-range-button");
 
 
 // min-range-input
@@ -86,15 +85,34 @@ var resetButton = document.querySelector(".reset");
 // reset to new random number
 var resetNewNumber
 
-// clear button
-clearButton = document.querySelector(".clear");
+// challenger 1 hint statement (high/low)
+var guessHintOne = document.querySelector(".hint-one")
+
+// challenger 2 hint statement (high/low)
+var guessHintTwo = document.querySelector(".hint-two")
+
+// ***************
+// EVENT LISTENERS
+// ***************
+
+updateButton.addEventListener("click", updateClick); // update range for static numbers in card row 2 
+submitButton.addEventListener("click", submitClick);
 
 
-// FUNCTIONS
 
-function getSolution() {
-  solution = Math.floor(Math.random() *(maxRange - minRange + 1) + minRange)
-  console.log(solution)
+function checkRange() {
+  if (!minRangeInput.checkValidity()){
+    alert("Whoops! Min Range number must be between 0 and 999!")
+  };
+  if (!maxRangeInput.checkValidity()){
+    alert("Whoops! Max Range number must be between 10 and 999!")
+  };
+  if (minRangeInput.value > maxRange.value) {
+    alert("Uh Oh! Min Range number must be lower than Max Range number!")
+  };
+  if (maxRangeInput.value < minRangeInput.value){
+    alert("Uh Oh! Max Range number must be higher than Min Range number!")
+  };
 }
 
 function checkRange() {
@@ -120,64 +138,40 @@ function clearGuessValues() {
   guessValueTwo.value = "";
 }
 
-function clearChalValues() {
-  challengerOne.value = "Challenger 1";
-  challengerTwo.value = "Challenger 2";
+// ****************
+// ALL FUNCTIONS
+// ****************
+
+
+function updateClick(e) {
+  e.preventDefault();
+  updateStaticRange();
+  updateNumberGenerator();
 }
 
-function enableButtons() {
-  // var playerInputArray = Array.from(playerInput);
-  console.log(playerInput);
-  for (var i = 0; i < playerInput.length; i++) {
-    console.log(playerInput[i].value)
-    if (playerInput[i].value.length > 0) {
-      resetButton.disabled = false;
-      clearButton.disabled = false;      
-    }
-  }
-}
-
-function disableButtons() {
-  if (playerInput[0].value.length === 0
-    && playerInput[1].value.length === 0
-    && playerInput[2].value.length === 0
-    && playerInput[3].value.length === 0) {
-    clearButton.disabled = true;
-    resetButton.disabled = true;
-  }
-}
-
-function resetRange() {
-  minRangeInput.value = 1;
-  maxRangeInput.value = 100;
-}
 
 function resetGuesses() {
   guessOutputOne.innerText = "?";
   guessOutputTwo.innerText = "?";
 }
-
   
 
 // EVENT LISTENERS
 
-// update range for static numbers in card row 2
-updateButton.addEventListener("click", function(e) {
-  e.preventDefault();
+function updateStaticRange() {
   console.log(minRangeInput.value);
   lowNumber.innerText = minRangeInput.value;
   console.log(maxRangeInput.value);
   highNumber.innerText = maxRangeInput.value;
-})
+}
 
 // update range for number generator(button update)
-updateButton.addEventListener("click", function(e) {
-  e.preventDefault();   
+function updateNumberGenerator() {
   minRange = parseInt(document.querySelector(".min-range").value, 10);
   maxRange = parseInt(document.querySelector(".max-range").value, 10);
     getSolution();
     checkRange();
-})
+}
 
 // update challenger one guess (button submit guess)
 submitButton.addEventListener("click", go)
@@ -220,6 +214,14 @@ resetButton.addEventListener("click", function(e) {
   return getSolution();
 })
 
+
+// reset game 
+resetButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  resetGuesses();
+})
+
+
 clearButton.addEventListener("click", function(e) {
   e.preventDefault();
   clearGuessValues();
@@ -227,3 +229,97 @@ clearButton.addEventListener("click", function(e) {
   resetRange();
   resetGuesses();
 })
+
+
+
+// FUNCTIONS
+
+function getSolution() {
+  solution = Math.floor(Math.random() * (maxRange - minRange + 1) + minRange)
+  console.log(solution + " random generated number");
+}
+
+function clearGuessValues() {
+  guessValueOne.value = "";
+  guessValueTwo.value = "";
+}
+
+function clearChalValues() {
+  challengerOne.value = "Challenger 1";
+  challengerTwo.value = "Challenger 2";
+}
+
+function enableButtons() {
+  // var playerInputArray = Array.from(playerInput);
+  console.log(playerInput);
+  for (var i = 0; i < playerInput.length; i++) {
+    console.log(playerInput[i].value)
+    if (playerInput[i].value.length > 0) {
+      resetButton.disabled = false;
+      clearButton.disabled = false;      
+    }
+  }
+}
+
+function disableButtons() {
+  if (playerInput[0].value.length === 0
+    && playerInput[1].value.length === 0
+    && playerInput[2].value.length === 0
+    && playerInput[3].value.length === 0) {
+    clearButton.disabled = true;
+    resetButton.disabled = true;
+  }
+}
+
+function resetRange() {
+  minRangeInput.value = 1;
+  maxRangeInput.value = 100;
+}
+
+function resetGuesses() {
+  guessOutputOne.innerText = "?";
+  guessOutputTwo.innerText = "?";
+}
+  
+
+
+
+
+// This function will be called in an event listener connected to the submitButton.
+
+// submitButton.addEventListener("click", function(e) {
+//   e.preventDefault();
+//   chalOneHighLow();
+//   chalTwoHighLow();
+// });
+
+
+// Submit Click Function
+function submitClick(e){
+  e.preventDefault();
+  chalOneHighLow();
+  chalTwoHighLow();
+}
+// The function will grab the inner text of the .hint-one and .hint-two  which will then be updated to the value of a function. the function will be a boolean which compares the argument of guessValueOne and guessValueTwo with the getSolution().
+
+function chalOneHighLow() {
+  if (guessValueOne.value > solution) {
+    guessHintOne.innerText = "that's too high";
+  } else if (guessValueOne.value < solution) {
+    guessHintOne.innerText = "that's too low";
+  } else {
+    guessHintOne.innerText = "BOOM!";
+    alert("BOOM!");
+  }
+}
+
+function chalTwoHighLow() {
+  if (guessValueTwo.value > solution) {
+    guessHintTwo.innerText = "that's too high";
+  } else if (guessValueTwo.value < solution) {
+    guessHintTwo.innerText = "that's too low";
+  } else {
+    guessHintTwo.innerText = "BOOM!";
+    alert("BOOM!");
+  }
+}
