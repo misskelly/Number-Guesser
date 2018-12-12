@@ -115,6 +115,21 @@ function checkRange() {
   };
 }
 
+function checkRange() {
+  if (!minRangeInput.checkValidity()){
+    alert("Whoops! Min Range number must be between 0 and 999!")
+  };
+  if (!maxRangeInput.checkValidity()){
+    alert("Whoops! Max Range number must be between 10 and 999!")
+  };
+  if (minRangeInput.value > maxRange.value) {
+    alert("Uh Oh! Min Range number must be lower than Max Range number!")
+  };
+  if (maxRangeInput.value < minRangeInput.value){
+    alert("Uh Oh! Max Range number must be higher than Min Range number!")
+  };
+}
+
   // body...
 
 
@@ -134,6 +149,11 @@ function updateClick(e) {
   updateNumberGenerator();
 }
 
+
+function resetGuesses() {
+  guessOutputOne.innerText = "?";
+  guessOutputTwo.innerText = "?";
+}
   
 
 // EVENT LISTENERS
@@ -152,7 +172,6 @@ function updateNumberGenerator() {
     getSolution();
     checkRange();
 }
-
 
 // update challenger one guess (button submit guess)
 submitButton.addEventListener("click", go)
