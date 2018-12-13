@@ -111,7 +111,7 @@ clearButton.addEventListener("click", clearClick);
 resetButton.addEventListener("click", resetClick);
 
 
-// Enable and Disable 
+// Enable and Disable buttons
 playerForm.addEventListener("keyup", enableButtons);
 playerForm.addEventListener("keyup", disableButtons);
 
@@ -127,7 +127,7 @@ function updateClick(e) {
   updateStaticRange();
   updateNumberGenerator();
   onlyNumbersRange();
-  checkRange()
+  checkRange();
 }
 
 function clearClick(e) {
@@ -143,7 +143,7 @@ function submitClick(e) {
   chalOneHighLow();
   chalTwoHighLow();
   chalNameToStatic();
-  onlyNumbersGuess()
+  onlyNumbersGuess();
   chalTwoGuessInRange();
   chalOneGuessInRange();
   emptyChallenger();
