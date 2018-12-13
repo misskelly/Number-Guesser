@@ -30,6 +30,7 @@ Both of us wanted to work well together. We met early each morning and we worked
 
 # Screen Grab of the Site Created
 
+![_users_jlavar1_documents_turing_projects_number-guesser_index html](https://user-images.githubusercontent.com/40274984/49948830-71fef180-feb1-11e8-9002-7e18c6d694c4.png)
 
 # Shortcomings
 
@@ -37,7 +38,7 @@ Both of us would have liked to complete Phase Three of the project, which would 
 
 # Learning during production
 
-If there was a chart that could have tracked what we learned in a short time, it would look something like this:
+If there was a chart that could have tracked what we learned in a short time, it would look something like this exponential growth chart:
 
 ![exponential growth](https://user-images.githubusercontent.com/40274984/49914611-392e3080-fe4f-11e8-8da1-1b938f4e8f26.jpg)
 
