@@ -170,9 +170,7 @@ function resetGuesses() {
 }
   
 function updateStaticRange() {
-  console.log(minRangeInput.value);
   lowNumber.innerText = minRangeInput.value;
-  console.log(maxRangeInput.value);
   highNumber.innerText = maxRangeInput.value;
 }
 
@@ -200,9 +198,7 @@ function clearChalValues() {
 }
 
 function enableButtons() {
-  console.log(playerInput);
   for (var i = 0; i < playerInput.length; i++) {
-    console.log(playerInput[i].value);
     if (playerInput[i].value.length > 0) {
       resetButton.disabled = false;
       clearButton.disabled = false;      
@@ -222,9 +218,7 @@ function disableButtons() {
 
 // update challenger names to latest score cards
 function chalNameToStatic() {
-  console.log(challengerOne.value);
   chalOneUpdateName.innerText = challengerOne.value;
-  console.log(challengerTwo.value);
   chalTwoUpdateName.innerText = challengerTwo.value;
 }
 
@@ -256,9 +250,7 @@ function checkRange() {
 }
 
 function guessToStatic() {
-  console.log(guessValueOne.value);
   guessOutputOne.innerText = guessValueOne.value;
-  console.log(guessValueTwo.value);
   guessOutputTwo.innerText = guessValueTwo.value;
 }
 
