@@ -2,9 +2,6 @@
 // GLOBAL VARIABLES
 // ****************
 
-//player input form
-var playerForm = document.querySelector(".player-form")
-var playerInput = document.querySelectorAll(".player-input");
 
 // names for challenger one 
 var challengerOne = document.querySelector(".name-input-one");
@@ -15,8 +12,12 @@ var challengerTwo = document.querySelector(".name-input-two");
 // name output for challenger one
 var chalOneUpdateName = document.querySelector(".name-output-one");
 
-//name output for challenger two
+// name output for challenger two
 var chalTwoUpdateName = document.querySelector(".name-output-two");
+
+// challenger input fields 
+var playerForm = document.querySelector(".player-form");
+var playerInput = document.querySelectorAll(".player-input");
 
 // guess one number
 var guessValueOne = document.querySelector(".guess-input-one");
@@ -42,23 +43,17 @@ var guessOutputOne = document.querySelector(".guess-output-one");
 // challenger 2 guess
 var guessOutputTwo = document.querySelector(".guess-output-two");
 
-// Form Buttons
+// form Buttons
 var submitButton = document.querySelector(".submit");
 var resetButton = document.querySelector(".reset");
 var clearButton = document.querySelector(".clear");
 var updateButton = document.querySelector(".set-range-button");
 
-
-// min-range-input
-var minRange;
-
 // default range 
 var solution = Math.ceil(Math.random() * 100);
 console.log(solution);
 
-// max-range-input
-var maxRange;
-
+// changes the max range input from a string to a number
 var maxParsed = parseInt(maxRange, 10);
 
 // update button
@@ -82,61 +77,45 @@ var submitButton = document.querySelector(".submit");
 // reset button
 var resetButton = document.querySelector(".reset");
 
-// reset to new random number
-var resetNewNumber
-
 // challenger 1 hint statement (high/low)
-var guessHintOne = document.querySelector(".hint-one")
+var guessHintOne = document.querySelector(".hint-one");
 
 // challenger 2 hint statement (high/low)
-var guessHintTwo = document.querySelector(".hint-two")
+var guessHintTwo = document.querySelector(".hint-two");
+
+
+// ************************
+// UNASSIGNED GLOBAL VARIABLES
+// ************************
+
+
+// reset to new random number
+var resetNewNumber;
+
+// min-range-input
+var minRange;
+
+// max-range-input
+var maxRange;
+
+
 
 // ***************
 // EVENT LISTENERS
 // ***************
 
-updateButton.addEventListener("click", updateClick); // update range for static numbers in card row 2 
+
+updateButton.addEventListener("click", updateClick); 
 submitButton.addEventListener("click", submitClick);
+clearButton.addEventListener("click", clearClick);
+resetButton.addEventListener("click", resetClick);
 
 
-
-function checkRange() {
-  if (!minRangeInput.checkValidity()){
-    alert("Whoops! Min Range number must be between 0 and 999!")
-  };
-  if (!maxRangeInput.checkValidity()){
-    alert("Whoops! Max Range number must be between 10 and 999!")
-  };
-  if (minRangeInput.value > maxRange.value) {
-    alert("Uh Oh! Min Range number must be lower than Max Range number!")
-  };
-  if (maxRangeInput.value < minRangeInput.value){
-    alert("Uh Oh! Max Range number must be higher than Min Range number!")
-  };
-}
-
-function checkRange() {
-  if (!minRangeInput.checkValidity()){
-    alert("Whoops! Min Range number must be between 0 and 999!")
-  };
-  if (!maxRangeInput.checkValidity()){
-    alert("Whoops! Max Range number must be between 10 and 999!")
-  };
-  if (minRangeInput.value > maxRange.value) {
-    alert("Uh Oh! Min Range number must be lower than Max Range number!")
-  };
-  if (maxRangeInput.value < minRangeInput.value){
-    alert("Uh Oh! Max Range number must be higher than Min Range number!")
-  };
-}
-
-  // body...
+// Enable and Disable 
+playerForm.addEventListener("keyup", enableButtons);
+playerForm.addEventListener("keyup", disableButtons);
 
 
-function clearGuessValues() {
-  guessValueOne.value = "";
-  guessValueTwo.value = "";
-}
 
 // ****************
 // ALL FUNCTIONS
@@ -147,17 +126,49 @@ function updateClick(e) {
   e.preventDefault();
   updateStaticRange();
   updateNumberGenerator();
+  onlyNumbersRange();
+  checkRange()
 }
 
+function clearClick(e) {
+  e.preventDefault();
+  clearGuessValues();
+  clearChalValues();
+  resetRange();
+  resetGuesses();
+}
+
+function submitClick(e) {
+  e.preventDefault();
+  chalOneHighLow();
+  chalTwoHighLow();
+  chalNameToStatic();
+  onlyNumbersGuess()
+  chalTwoGuessInRange();
+  chalOneGuessInRange();
+  emptyChallenger();
+  guessToStatic();
+}
+
+function resetClick(e) {
+  e.preventDefault();
+  minRange = parseInt(document.querySelector(".min-range").value, 10) || 1;
+  maxRange = parseInt(document.querySelector(".max-range").value, 10) || 100;
+  solution = Math.floor(Math.random() *(maxRange - minRange + 1) + minRange)
+  return getSolution();
+  resetGuesses();
+}
+
+function clearGuessValues() {
+  guessValueOne.value = "";
+  guessValueTwo.value = "";
+}
 
 function resetGuesses() {
   guessOutputOne.innerText = "?";
   guessOutputTwo.innerText = "?";
 }
   
-
-// EVENT LISTENERS
-
 function updateStaticRange() {
   console.log(minRangeInput.value);
   lowNumber.innerText = minRangeInput.value;
@@ -165,77 +176,16 @@ function updateStaticRange() {
   highNumber.innerText = maxRangeInput.value;
 }
 
-// update range for number generator(button update)
+// update range for number generator once the min and max input fields are entered by challengers
 function updateNumberGenerator() {
   minRange = parseInt(document.querySelector(".min-range").value, 10);
   maxRange = parseInt(document.querySelector(".max-range").value, 10);
-    getSolution();
-    checkRange();
+  getSolution();
 }
 
-// update challenger one guess (button submit guess)
-submitButton.addEventListener("click", go)
-function go(e) {
-  e.preventDefault();
-  console.log(guessValueOne.value);
-  guessOutputOne.innerText = guessValueOne.value;
-  console.log(guessValueTwo.value);
-  guessOutputTwo.innerText = guessValueTwo.value;
-};
-
-// update challenger names to latet score cards using submit guess button
-submitButton.addEventListener("click", function(e) {
-  e.preventDefault();
-  console.log(challengerOne.value);
-  chalOneUpdateName.innerText = challengerOne.value;
-  console.log(challengerTwo.value);
-  chalTwoUpdateName.innerText = challengerTwo.value;
-})
-
-
-clearButton.addEventListener("click", function(e) {
-  e.preventDefault();
-});
-
-
-// Enable and Dis
-playerForm.addEventListener("keyup", enableButtons);
-playerForm.addEventListener("keyup", disableButtons);
-
-
-// submit guess (button guess)
-
-// reset game (button reset)
-resetButton.addEventListener("click", function(e) {
-  e.preventDefault();
-  minRange = parseInt(document.querySelector(".min-range").value, 10) || 1;
-  maxRange = parseInt(document.querySelector(".max-range").value, 10) || 100;
-  solution = Math.floor(Math.random() *(maxRange - minRange + 1) + minRange)
-  return getSolution();
-})
-
-
-// reset game 
-resetButton.addEventListener("click", function(e) {
-  e.preventDefault();
-  resetGuesses();
-})
-
-
-clearButton.addEventListener("click", function(e) {
-  e.preventDefault();
-  clearGuessValues();
-  clearChalValues();
-  resetRange();
-  resetGuesses();
-})
-
-
-
-// FUNCTIONS
-
+// creates new solution once min/max range is updated
 function getSolution() {
-  solution = Math.floor(Math.random() * (maxRange - minRange + 1) + minRange)
+  solution = Math.floor(Math.random() * (maxRange - minRange + 1) + minRange);
   console.log(solution + " random generated number");
 }
 
@@ -250,10 +200,9 @@ function clearChalValues() {
 }
 
 function enableButtons() {
-  // var playerInputArray = Array.from(playerInput);
   console.log(playerInput);
   for (var i = 0; i < playerInput.length; i++) {
-    console.log(playerInput[i].value)
+    console.log(playerInput[i].value);
     if (playerInput[i].value.length > 0) {
       resetButton.disabled = false;
       clearButton.disabled = false;      
@@ -271,35 +220,48 @@ function disableButtons() {
   }
 }
 
+// update challenger names to latest score cards
+function chalNameToStatic() {
+  console.log(challengerOne.value);
+  chalOneUpdateName.innerText = challengerOne.value;
+  console.log(challengerTwo.value);
+  chalTwoUpdateName.innerText = challengerTwo.value;
+}
+
+// resets range to default 1 to 100
 function resetRange() {
   minRangeInput.value = 1;
   maxRangeInput.value = 100;
 }
 
+// resets static latest score card guesses
 function resetGuesses() {
   guessOutputOne.innerText = "?";
   guessOutputTwo.innerText = "?";
 }
   
-
-
-
-
-// This function will be called in an event listener connected to the submitButton.
-
-// submitButton.addEventListener("click", function(e) {
-//   e.preventDefault();
-//   chalOneHighLow();
-//   chalTwoHighLow();
-// });
-
-
-// Submit Click Function
-function submitClick(e){
-  e.preventDefault();
-  chalOneHighLow();
-  chalTwoHighLow();
+function checkRange() {
+  if (!minRangeInput.checkValidity()){
+    alert("Whoops! Min Range number must be between 0 and 999!")
+  };
+  if (!maxRangeInput.checkValidity()){
+    alert("Whoops! Max Range number must be between 10 and 999!")
+  };
+  if (minRangeInput.value > maxRange.value) {
+    alert("Uh Oh! Min Range number must be lower than Max Range number!")
+  };
+  if (maxRangeInput.value < minRangeInput.value){
+    alert("Uh Oh! Max Range number must be higher than Min Range number!")
+  };
 }
+
+function guessToStatic() {
+  console.log(guessValueOne.value);
+  guessOutputOne.innerText = guessValueOne.value;
+  console.log(guessValueTwo.value);
+  guessOutputTwo.innerText = guessValueTwo.value;
+}
+
 // The function will grab the inner text of the .hint-one and .hint-two  which will then be updated to the value of a function. the function will be a boolean which compares the argument of guessValueOne and guessValueTwo with the getSolution().
 
 function chalOneHighLow() {
@@ -321,5 +283,43 @@ function chalTwoHighLow() {
   } else {
     guessHintTwo.innerText = "BOOM!";
     alert("BOOM!");
+  }
+}
+
+function chalTwoGuessInRange() {
+  if (parseInt(guessValueTwo.value) < parseInt(minRangeInput.value)) {
+    clearGuessValues();
+    alert("Guess can not be lower than the Min Range");
+  } else if (parseInt(guessValueTwo.value) > parseInt(maxRangeInput.value)) {
+    alert("Guess can not be higher than the Max Range");
+    clearGuessValues();  
+  } 
+}
+
+function chalOneGuessInRange() {
+  if (parseInt(guessValueOne.value) < parseInt(minRangeInput.value)) {
+    clearGuessValues();
+    alert("Guess can not be lower than the Min Range");
+  } else if (parseInt(guessValueOne.value) > parseInt(maxRangeInput.value)) {
+    alert("Guess can not be higher than the Max Range");
+    clearGuessValues();  
+  } 
+}
+
+function onlyNumbersGuess() {
+  if (guessValueOne.value == "" || guessValueTwo.value == "") {
+    alert("Please change guess value :)");
+  }
+}
+
+function onlyNumbersRange() {    
+  if (minRangeInput.value == "" || maxRangeInput == "") {
+    alert("Please change guess value :)");
+  }
+}
+
+function emptyChallenger() {
+  if (challengerOne.value == "" || challengerTwo.value == "") {
+    alert("Please update Challenger Name");
   }
 }
