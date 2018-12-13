@@ -2,9 +2,9 @@
 /* Universal */
 
 body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
 }
 
 main {
@@ -13,10 +13,10 @@ main {
 }
 
 .left-card {
-  padding: 10px;
-  border: 1px solid #D0D2D3;
   background-color: #FFFFFF;
+  border: 1px solid #D0D2D3;
   margin: 1rem;
+  padding: 10px;
 }
 
 .flex-container {
@@ -36,9 +36,9 @@ h3 {
 /*Header*/
 
 h1 {
+  color: #DD1972;
   font-size: 4rem;
   font-weight: 700;
-  color: #DD1972;
   margin: 0;
   padding-top: 1rem;
 }
@@ -53,32 +53,32 @@ h1 {
 }
 
 header {
-  background-color: #404041;
-  justify-content: center;
   align-items: center;
+  background-color: #404041;
   flex-direction: column;
-  text-transform: uppercase;
   height: 9rem;
+  justify-content: center;
+  text-transform: uppercase;
 }
 
 .subtitle {
-  width: 50%;
-  height: 50%;
   align-items: center;
-  justify-content: center;
   color: #FFFFFF;
+  height: 50%;
+  justify-content: center;
   text-align: center;
+  width: 50%;
 }
 
 hr {
-  width: 20%;
   margin: 0;
+  width: 20%;
 }
 
 .heading-bottom {
-  width: 70%;
-  font-weight: 300;
   font-size: 1rem;
+  font-weight: 300;
+  width: 70%;
 }
 
 
@@ -86,8 +86,8 @@ hr {
 .game {
   background-color: #F7F7F7;
   border: 1px solid #6E6E6E;
-  width: 50%;
   padding-left: 0px;
+  width: 50%;
 }
 
 
@@ -95,8 +95,8 @@ hr {
 
 
 input {
-  width: 90%;
   height: 1.5rem;
+  width: 90%;
 }
 
 .player {
@@ -118,8 +118,6 @@ form {
 .set-range-button {
   width: 30%;
 }
-
-
 
 .form-field {
   display: inline-block;
@@ -151,9 +149,9 @@ form {
 }
 
 .game-buttons{
-  width: 100%;
   justify-content: space-around;
   padding-top: .5rem;
+  width: 100%;
 }
 
 .g-button {
@@ -163,8 +161,8 @@ form {
 /*Results*/
 
 .pink {
-  font-size: 5rem;
   color: #DD1972;
+  font-size: 5rem;
   font-weight: 900;
   line-height: 0;
   margin: 3rem;
@@ -175,9 +173,9 @@ form {
 }
 
 .outcome {
-  width: 48%;
   display: inline-block;
   text-align: center;
+  width: 48%;
 }
 
 .article-right {
