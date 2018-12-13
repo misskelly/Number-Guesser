@@ -26,6 +26,7 @@ Both of us wanted to work well together. We met early each morning and we worked
 
 # Screen Grab of Static Comp Provided
 
+![numbergcomp](https://user-images.githubusercontent.com/40274984/49914659-67ac0b80-fe4f-11e8-8b09-bf72976719a8.jpg)
 
 # Screen Grab of the Site Created
 
@@ -38,7 +39,7 @@ Both of us would have liked to complete Phase Three of the project, which would 
 
 If there was a chart that could have tracked what we learned in a short time, it would look something like this:
 
-INSERT EXPONENTIAL GROWTH HERE
+![exponential growth](https://user-images.githubusercontent.com/40274984/49914611-392e3080-fe4f-11e8-8da1-1b938f4e8f26.jpg)
 
 Not a day went by that we did not experiment and learn. We learned as much about coding as we did about how to work as members of a team. 
 
