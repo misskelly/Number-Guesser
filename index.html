@@ -20,66 +20,88 @@
       <hr>
       </section>
     </header>
+    <!-- ######################################### -->
+    <!-- -------------MAIN------------------------ -->
+    <!-- ######################################### -->
     <main class="flex-container">
       <section class="flex-container flex-column game">
         <article class="set-range-card left-card flex-container">
           <form class="range-form">
-            <h3>
-              Set Range
-            </h3>
-            <label for="lowest">
-              Min Range
-            </label>
-            <input type="Number" class="min-range" id="low" name="lowest" min="0" max="990" placeholder="0">
-            <label for="highest">
-              Max Range
-            </label>
-            <input type="Number" class="max-range" id="high" name="highest" min="10" max="999" placeholder="100">
+              <h3>
+                Set Range
+              </h3>
+            <div class="form-field set-range">
+              <p class="form-lable">
+                Min Range
+              </p>
+              <input type="Number" class="min-range" min="0" max="990" placeholder="0">
+            </div>
+            <div class="form-field set-range">
+              <p class="form-lable">
+                Max Range
+              </p>
+              <input type="Number" class="max-range" id="high" min="10" max="999" placeholder="100">
+            </div>
             <button class="set-range-button">
               Update
             </button>
           </form>
         </article>
-        <article class="guesses-card left-card flex-container flex-column">
-          <p>
-            The Current Range is <span class="min">1</span> to <span class="max">100</span>     
+
+     <!--######################################### -->
+    <!-- -------------GUESSES------------------------ -->
+    <!-- ######################################### -->
+        <section class="guesses-card left-card flex-container flex-column">
+          <p class="current">
+            The Current Range is <span class="min range">1</span> to <span class="max range">100</span>     
           </p>
           <form class="player-form">
             <h3>
-              Challenger 1
+               Challenger 1
             </h3>
-            <p class="name-one">
-              Name
-            </p>
-            <input type="name" class="name-input-one player-input">
-            <p>
+            <article class="form-field player">
+              <p class="name-one form-lable">
+                Name
+              </p>
+              <input type="name" name="p-one-name" class="name-input-one player-input">
+            </article>  
+            <article class="form-field guess">
+              <p class="guess-one form-lable">
               Guess
-            </p>
-            <input type="Number" class="guess-input-one player-input">
-             <h3>
-              Challenger 2
-            </h3>
-            <p class="name-two">
-              Name
-            </p>
-            <input type="name" class="name-input-two player-input">
-            <p>
-              Guess
-            </p>
-            <input type="Number" class="guess-input-two player-input">
-            <div class="flex-container">
-                <button class="submit">
-                  Submit Guess
-                </button>
-                <button disabled="true" class="reset">
-                  Reset Game
-                </button>
-                <button disabled="true" class="clear">
-                  Clear Game
-                </button>
-            </div>
+              </p>
+              <input type="Number" name="guess-one" class="guess-input-one player-input">
+            </article>
+              <h3>
+                Challenger 2
+              </h3>
+            <article class="form-field player">
+              <p class="name-two form-lable">
+                Name
+              </p>
+              <input type="name" name="p-two-name" class="name-input-two player-input">
+            </article>
+            <article class="form-field guess">
+              <p class="guess-two form-lable">
+                Guess
+              </p>
+              <input type="Number" name="guess-two" class="guess-input-two guess player-input">
+            </article>
+            <article class="game-buttons flex-container">
+              <button class="submit">
+                Submit Guess
+              </button>
+              <button disabled="true" class="reset">
+                Reset Game
+              </button>
+              <button disabled="true" class="clear">
+                Clear Game
+              </button>
+            </article>
           </form>
-        </article>
+        </section>
+    <!-- ######################################### -->
+    <!-- -------------LATEST SCORE-------------- -->
+    <!-- ######################################### -->       
         <article class="latest-score left-card">
           <h3>
             Latest Score

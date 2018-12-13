@@ -1,10 +1,15 @@
-
+  
 /* Universal */
 
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
+}
+
+main {
+  color: #6E6E6E;
+  width: 100%;
 }
 
 .left-card {
@@ -16,7 +21,6 @@ body {
 
 .flex-container {
   display: flex;
-  margin: 0;
 }
 
 .flex-column {
@@ -24,7 +28,8 @@ body {
 }
 
 h3 {
-  margin: 0;
+  margin: 0 0 .4rem .2rem;
+
 }
 
 
@@ -76,17 +81,59 @@ hr {
   font-size: 1rem;
 }
 
-/*Set Range Card*/
 
-label {
-  display: inline-block;
-}
-
+/***********GAME**************/
 .game {
   background-color: #F7F7F7;
   border: 1px solid #6E6E6E;
   width: 50%;
   padding-left: 0px;
+}
+
+
+/*Set Range Card*/
+.range {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+input {
+  width: 90%;
+  height: 1.5rem;
+}
+.player {
+  width: 60%;
+}
+
+form {
+  width: 100%;
+}
+
+.form-lable {
+  margin: .2rem 0;
+}
+
+.set-range {
+  width: 35%;
+  height: 1.5rem;
+}
+
+.form-field {
+  display: inline-block;
+  padding: 0 0 .7rem .2rem ;
+}
+
+.guesses-card,
+.set-range-card {
+  margin-bottom: 0;
+}
+
+.current {
+  margin-top: .2rem;
+}
+
+.guess {
+  width: 30%;
 }
 
 /*Results*/
