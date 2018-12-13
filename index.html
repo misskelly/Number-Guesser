@@ -71,7 +71,7 @@
               </p>
               <input type="Number" name="guess-one" class="guess-input-one player-input">
             </article>
-              <h3>
+              <h3 class="ch-two">
                 Challenger 2
               </h3>
             <article class="form-field player">
@@ -84,16 +84,16 @@
               <p class="guess-two form-lable">
                 Guess
               </p>
-              <input type="Number" name="guess-two" class="guess-input-two guess player-input">
+              <input type="Number" name="guess-two" class="guess-input-two player-input">
             </article>
             <article class="game-buttons flex-container">
-              <button class="submit">
+              <button class="submit g-button">
                 Submit Guess
               </button>
-              <button disabled="true" class="reset">
+              <button disabled="true" class="reset g-button">
                 Reset Game
               </button>
-              <button disabled="true" class="clear">
+              <button disabled="true" class="clear g-button">
                 Clear Game
               </button>
             </article>
@@ -106,34 +106,34 @@
           <h3>
             Latest Score
           </h3>
-          <article class="article-left">
+          <div class="article-left outcome">
             <h4 class="name-output-one">
               Challenger 1 Name
             </h4>
             <p>
               current guess
             </p>
-            <p class="guess-output-one">
+            <p class="guess-output-one pink">
               97
             </p>
             <h5 class="hint-one hints">
               that's too high
             </h5>
-          </article>
-          <article>
+          </div>
+          <div class="article-right outcome">
             <h4 class="name-output-two">
               Challenger 2 Name
             </h4>
             <p>
               current guess
             </p>
-            <p class="guess-output-two">
+            <p class="guess-output-two pink">
               3
             </p>
             <h5 class="hint-two hints">
               that's too low
             </h5>
-          </article>
+          </div>
         </article>
       </section>
       <ul class="results flex-container">

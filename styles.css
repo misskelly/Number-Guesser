@@ -92,15 +92,13 @@ hr {
 
 
 /*Set Range Card*/
-.range {
-  font-weight: 700;
-  text-decoration: underline;
-}
+
 
 input {
   width: 90%;
   height: 1.5rem;
 }
+
 .player {
   width: 60%;
 }
@@ -114,14 +112,25 @@ form {
 }
 
 .set-range {
-  width: 35%;
-  height: 1.5rem;
+  width: 33%;
 }
+
+.set-range-button {
+  width: 30%;
+}
+
+
 
 .form-field {
   display: inline-block;
   padding: 0 0 .7rem .2rem ;
 }
+
+.range {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 
 .guesses-card,
 .set-range-card {
@@ -129,15 +138,51 @@ form {
 }
 
 .current {
-  margin-top: .2rem;
+  margin: .2rem 0 1.2rem 0;
+
+}
+
+.ch-two {
+  padding-bottom: .5rem;
 }
 
 .guess {
+  width: 35%;
+}
+
+.game-buttons{
+  width: 100%;
+  justify-content: space-around;
+  padding-top: .5rem;
+}
+
+.g-button {
   width: 30%;
 }
 
 /*Results*/
 
+.pink {
+  font-size: 5rem;
+  color: #DD1972;
+  font-weight: 900;
+  line-height: 0;
+  margin: 3rem;
+}
+
+.latest-score {
+  display: inline-block;
+}
+
+.outcome {
+  width: 48%;
+  display: inline-block;
+  text-align: center;
+}
+
+.article-right {
+  border-left: 2px solid #D0D2D3;
+}
 
 @media  screen and (min-width: 900px)
 
